@@ -1,0 +1,14 @@
+class Input{
+    static keysDown = []
+
+    static keydown(event){
+        console.log(event)
+        if(Engine.keydown.includes(event.code))
+            Input.keysDown.push(event.code)
+    }
+
+    static keyup(event){
+        let index = Engine.keysDown(event.code)
+        Engine.keydown.splice(index, 1) 
+    }
+} 
