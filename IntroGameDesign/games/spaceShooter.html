@@ -10,43 +10,23 @@
         </style>
     </head>
     <body>
-       <canvas id="canv"></canvas> 
+       <canvas id="canv">
+       </canvas> 
 
        <script src="../engine/Vector2.js"></script>
        <script src="../engine/input.js"></script>
        <script src="../engine/Engine.js"></script>
+       <script src="../engine/Component.js"></script>
+       <script src="../engine/GameObject.js"></script>
+       <script src="../engine/Scene.js"></script>
+        
+       <script src="MainScene.js"></script>
+       <script src="MainGameObject.js"></script>
+       <script src="DrawComponent.js"></script>
+       <script src="UpdateComponent.js"></script>
 
        <script>
-            let position = new Vector2(50,50)
-
-        
-            function update(){
-                position.x = position.x + .1
-            }
-
-            function draw(ctx){
-                //Signaling to context that I'm going to draw something//
-                ctx.save()
-
-                //Set center of an object//
-                ctx.translate(position.x, position.y)
-
-                ctx.lineTo(0, -20)
-                ctx.lineTo(10, -30)
-                ctx.lineTo(10, 0)
-                ctx.lineTo(50, -40)
-                ctx.lineTo(60, -50)
-                ctx.lineTo(500, 0)
-                ctx.lineTo(0, 40)
-
-
-                ctx.fillStyle = "orange"
-                ctx.fill()
-
-                //Signaling to context that I'm done drawing//
-                ctx.restore()
-            }
-
+            Engine.currentScene = new MainScene()
             Engine.start()
 
        </script>
