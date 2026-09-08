@@ -16,7 +16,7 @@ class DrawComponent extends Component{
         ctx.lineTo(500, 0)
         ctx.lineTo(0, 40)
 
-
+        //This is a test for github to pls work//
         ctx.fillStyle = "orange"
         ctx.fill()
 
