@@ -17,7 +17,7 @@ class GameObject{
 
     start(){
         for(const component of this.components){
-            components.start?.()
+            component.start?.()
         }
     }
 
