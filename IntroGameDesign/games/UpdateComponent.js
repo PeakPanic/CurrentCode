@@ -5,7 +5,7 @@ class UpdateComponent extends Component{
     }
 
     update(){
-        this.timeSinceLastLaser += 1
+        this.timeSinceLastLaser += 2
 
         if (Input.keysDown.includes("ArrowRight"))
             this.transform.position.x = this.transform.position.x + 1
@@ -20,7 +20,7 @@ class UpdateComponent extends Component{
             this.transform.position.y = this.transform.position.y + 1
         
 
-        if(this.timeSinceLastLaser > 50){
+        if(this.timeSinceLastLaser > 100){
             this.timeSinceLastLaser = 0
             instantiate(new LaserGameObject(), this.transform.position.clone())
         }
