@@ -1,4 +1,4 @@
-class laserGameObject extends GameObject{
+class LaserGameObject extends GameObject{
     constructor(){
         super()
         this.addComponent(new LaserController())
