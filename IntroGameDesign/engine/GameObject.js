@@ -23,7 +23,7 @@ class GameObject{
 
     update(){
         for(const component of this.components){
-            this.components.update?.()
+            component.update?.()
         }
     }
 
