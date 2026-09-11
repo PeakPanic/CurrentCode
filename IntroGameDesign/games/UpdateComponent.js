@@ -22,7 +22,7 @@ class UpdateComponent extends Component{
 
         if(this.timeSinceLastLaser > 50){
             this.timeSinceLastLaser = 0
-            instantiate(new LaserObject(), this.transform.position.clone())
+            instantiate(new LaserGameObject(), this.transform.position.clone())
         }
 
     }
