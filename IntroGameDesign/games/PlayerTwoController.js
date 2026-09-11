@@ -7,16 +7,16 @@ class PlayerTwoController extends Component{
         this.timeSinceLastDropper += 1
 
         if (Input.keysDown.includes("KeyD") && this.transform.position.x < Engine.canvas.width - 10)
-            this.transform.position.x = this.transform.position.x + 2
+            this.transform.position.x = this.transform.position.x + 3
     
         if (Input.keysDown.includes("KeyA") && this.transform.position.x > 10)
-            this.transform.position.x = this.transform.position.x - 2
+            this.transform.position.x = this.transform.position.x - 3
     
         if (Input.keysDown.includes("KeyW") && this.transform.position.y > 10) 
-            this.transform.position.y = this.transform.position.y - 2
+            this.transform.position.y = this.transform.position.y - 3
         
         if (Input.keysDown.includes("KeyS") && this.transform.position.y < (Engine.canvas.height / 2) - 20)
-            this.transform.position.y = this.transform.position.y + 2
+            this.transform.position.y = this.transform.position.y + 3
         
 
         if(this.timeSinceLastDropper > 100){
