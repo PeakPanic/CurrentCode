@@ -1,6 +1,6 @@
 class DrawComponent extends Component{
     draw(ctx){
-        let poisiton = this.transform.position
+        let position = this.transform.position
 
         //Signaling to context that I'm going to draw something//
         ctx.save()

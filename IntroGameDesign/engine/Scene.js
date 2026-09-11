@@ -2,8 +2,8 @@ class Scene{
     gameObjects = []
 
     instantiate(gameObject, position = new Vector2(0, 0)){
-        gameObject.transform.position = position
         this.gameObjects.push(gameObject)
+        gameObject.transform.position = position
     }
 
     start(){
