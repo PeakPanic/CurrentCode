@@ -7,23 +7,23 @@ class UpdateComponent extends Component{
     update(){
         this.timeSinceLastLaser += 1
 
-        if (Input.keysDown.includes("ArrowRight")) {
+        if (Input.keysDown.includes("ArrowRight"))
             this.transform.position.x = this.transform.position.x + 1
-        }
-        if (Input.keysDown.includes("ArrowLeft")) {
+    
+        if (Input.keysDown.includes("ArrowLeft"))
             this.transform.position.x = this.transform.position.x - 1
-        }
-        if (Input.keysDown.includes("ArrowUp")) {
+    
+        if (Input.keysDown.includes("ArrowUp")) 
             this.transform.position.y = this.transform.position.y - 1
-        }
-        if (Input.keysDown.includes("ArrowDown")) {
+        
+        if (Input.keysDown.includes("ArrowDown")) 
             this.transform.position.y = this.transform.position.y + 1
-        }
+        
 
-        if(this.timeSinceLastLaser > 50){
+        if(this.timeSinceLastLaser > 50)
             this.timeSinceLastLaser = 0
             instantiate(new LaserGameObject(), this.transform.position.clone())
-        }
+        
 
     }
 }
