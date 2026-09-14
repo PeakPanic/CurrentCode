@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Loop</title>
+        <style> 
+            *{
+                margin: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body style = "background-color:#0e0f12;">
+       <canvas id="canv">
+       </canvas> 
+
+       <script src="../../engine/Vector2.js"></script>
+       <script src="../../engine/input.js"></script>
+       <script src="../../engine/Engine.js"></script>
+       <script src="../../engine/Component.js"></script>
+       <script src="../../engine/GameObject.js"></script>
+       <script src="../../engine/Scene.js"></script>
+       <script src="../../engine/components/Polygon.js"></script>
+       <script src="../../engine/components/Transform.js"></script>
+       
+       <script src="./scenes/MainScene.js"></script>
+       <script src="./gameObjects/MainGameObject.js"></script>
+       <script src="./components/DrawComponent.js"></script>
+       <script src="./components/UpdateComponent.js"></script>
+       <script src="./components/LaserController.js"></script>
+       <script src="./gameObjects/LaserGameObject.js"></script>
+       <script src="./components/LaserPolygon.js"></script>
+       <script src="./components/DropperController.js"></script>
+       <script src="./gameObjects/DropperGameObject.js"></script>
+       <script src="./components/DropperPolygon.js"></script>
+       <script src="./gameObjects/PlayerTwoGameObject.js"></script>
+       <script src="./components/PlayerTwoController.js"></script>
+
+       <script>
+            Engine.currentScene = new MainScene()
+            Engine.start()
+
+       </script>
+    </body>
+</html>
