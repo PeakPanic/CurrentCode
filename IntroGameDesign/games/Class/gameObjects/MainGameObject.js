@@ -2,10 +2,7 @@ class MainGameObject extends GameObject{
     constructor(){
         super()
         this.addComponent(new UpdateComponent())
-        this.addComponent(new Polygon(), {fillStyle: "cyan", points:[
-            new Vector2(0, -20),
-            new Vector2(10, 10),
-            new Vector2(-10, 10),
-        ]})
+        this.addComponent(new Polygon(), {fillStyle: "cyan", points:Assets.triangle})
+        this.transform.scale = new Vector2(1,1)
     }
 }

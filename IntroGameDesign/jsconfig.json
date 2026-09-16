@@ -10,6 +10,6 @@
         "target":"esnext",
     },
     "exclude": [
-        "before"
+        "Class", "MyGame"
     ]
 }

@@ -26,6 +26,8 @@ class Engine{
         Engine.update()
         Engine.draw() 
 
+        Time.update()
+
         //calls itself again when next available
         requestAnimationFrame(Engine.gameLoop)
     }
