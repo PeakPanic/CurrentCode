@@ -1,6 +1,6 @@
 class LaserGameObject extends GameObject{
     constructor(){
-        super()
+        super("Laser")
         this.addComponent(new LaserController())
         this.addComponent(new Polygon(), {fillStyle: "white", points:[
             new Vector2(0, -10),
