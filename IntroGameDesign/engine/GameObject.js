@@ -3,7 +3,7 @@ class GameObject{
 
     markForDestroy = false
 
-    name = []
+    name
 
     get transform(){
         return this.components[0];

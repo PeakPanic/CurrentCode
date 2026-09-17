@@ -7,7 +7,7 @@ class UpdateComponent extends Component{
     }
 
     update(){
-        this.timeSinceLastLaser += 2
+        this.timeSinceLastLaser += 1
 
         if ((Input.keysDown.includes("ArrowRight")||Input.keysDown.includes("KeyL")) && this.transform.position.x < Engine.canvas.width - 10)
             this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
