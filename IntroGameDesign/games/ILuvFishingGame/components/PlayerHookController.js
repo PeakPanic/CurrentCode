@@ -3,13 +3,15 @@ class PlayerHookController extends Component{
 
     start(){
     this.timeSinceLastFish = 0
+    this.totalTime = 0
     }
 
     update(){
         this.timeSinceLastFish += 1
+        this.totalTime += 1 
 
         if(this.timeSinceLastFish == 200){
-            instantiate(new FishObject(), new Vector2(this.screenWidth * Math.random(), this.screenHeight + 20))
+            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random(), window.innerHeight + 20))
             this.timeSinceLastFish = 0
         }
 
