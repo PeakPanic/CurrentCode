@@ -1,18 +1,6 @@
-class PlayerHookController extends Component{
+class FishingLineController extends Component{
     speed = 100
-
-    start(){
-    this.timeSinceLastFish = 0
-    }
-
     update(){
-        this.timeSinceLastFish += 1
-
-        if(this.timeSinceLastFish == 200){
-            instantiate(new FishObject(), new Vector2(this.screenWidth * Math.random(), this.screenHeight + 20))
-            this.timeSinceLastFish = 0
-        }
-
         if(Input.keysDown.includes("KeyW"))
             this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
         if(Input.keysDown.includes("KeyA"))
