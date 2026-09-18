@@ -1,7 +1,7 @@
 class FishController extends Component{
-    randomSpeed = Math.random()
+    randomSpeed = Math.floor(Math.random() * 5)
 
     update(){
-        this.transform.position.y -= Time.deltaTime * 150 * this.randomSpeed
+        this.transform.position.y -= Time.deltaTime * 30 * this.randomSpeed
     }
 }
