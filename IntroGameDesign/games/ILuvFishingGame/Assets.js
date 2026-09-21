@@ -5,6 +5,14 @@ class Assets{
         new Vector2(-10, 10),
     ]
 
+    static line = [
+        new Vector2(-1,0),
+        new Vector2(-1,-window.innerHeight),
+        new Vector2(1,-window.innerHeight),
+        new Vector2(1,0),
+        new Vector2(-1,0)
+    ]
+
     //hook no work cant figure this out//
     static hook = [
         new Vector2(-5, -10),
