@@ -48,7 +48,7 @@ class GameObject{
     }
 
     static find(name){
-        //same as return Engine.currentScene.gameObjects.find(function(go){return go.name == name})//
-        return Engine.currentScene.gameObjects.find(go=>go.name == name)
+        //same as return SceneManager.currentScene.gameObjects.find(function(go){return go.name == name})//
+        return SceneManager.currentScene.gameObjects.find(go=>go.name == name)
     }
 }

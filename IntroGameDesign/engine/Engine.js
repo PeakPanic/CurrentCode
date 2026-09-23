@@ -3,9 +3,7 @@ class Engine{
     
     static ctx
 
-    static currentScene
-
-    static start(){
+    static start(nextScene){
         //Makes the canvas an actual element named canvas
         Engine.canvas = document.querySelector("#canv")
         //Lets the browser know we are working in 2D
@@ -15,7 +13,7 @@ class Engine{
         addEventListener("keydown", Input.keydown)
         addEventListener("keyup", Input.keyup)
 
-        Engine.currentScene.start()
+        SceneManager.nextScene = nextScene
 
         //Loops whenever the browser can
         requestAnimationFrame(Engine.gameLoop)
@@ -23,6 +21,7 @@ class Engine{
 
     //This is the game loop, which will run whenever it can
     static gameLoop(){
+        SceneManager.update()
         Engine.update()
         Engine.draw() 
 
@@ -34,7 +33,7 @@ class Engine{
 
     //Updates the current scene
     static update(){
-        Engine.currentScene.update()
+        SceneManager.currentScene.update()
 
     }
 
@@ -43,7 +42,7 @@ class Engine{
         Engine.canvas.width = window.innerWidth
         Engine.canvas.height = window.innerHeight
         
-        Engine.currentScene.draw(Engine.ctx)
+        SceneManager.currentScene.draw(Engine.ctx)
 
     }
 
