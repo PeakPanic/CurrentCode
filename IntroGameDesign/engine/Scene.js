@@ -20,7 +20,7 @@ class Scene{
 
         let temp = []
         for(const gameObject of this.gameObjects){
-            if(!gameObject.markforDestroy)
+            if(!gameObject.markForDestroy)
                 temp.push(gameObject)
         }
         this.gameObjects = temp
