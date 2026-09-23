@@ -1,6 +1,6 @@
 class FishObject extends GameObject{
     constructor(){
-        super("Fish")
+        super("Fish", ["Fish"])
         this.addComponent(new FishController)
         this.addComponent(new Polygon(), {fillStyle:"Blue", points:Assets.triangle})
     }

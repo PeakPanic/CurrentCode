@@ -23,5 +23,15 @@ class PlayerHookController extends Component{
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
         if(Input.keysDown.includes("KeyD"))
             this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
+
+        let myPosition = this.transform.position
+        let fishObjects = GameObject.findGameObjectsWithTag("Fish")    
+        for(const fishObject of fishObjects){
+            let fishPosition = fishObject.transform.position
+            let distance = myPosition.minus(fishPosition).magnitude
+            if(distance < 20){
+                fishObject.destroy()
+            }
+        }
     }
 }
