@@ -5,13 +5,16 @@ class GameObject{
 
     name
 
+    tags = []
+
     get transform(){
         return this.components[0];
     }
 
-    constructor(name){
+    constructor(name, tags = []){
         this.addComponent(new Transform())
         this.name = name
+        this.tags = tags
     }
 
     //This adds a component to an object and along with parameters for it
@@ -22,8 +25,9 @@ class GameObject{
     }
 
     start(){
-        for(const component of this.components){
+        for(const component of this.components.filter(c=>!c.didStart)){
             component.start?.()
+            component.didStart = true
         }
     }
 
@@ -50,5 +54,10 @@ class GameObject{
     static find(name){
         //same as return SceneManager.currentScene.gameObjects.find(function(go){return go.name == name})//
         return SceneManager.currentScene.gameObjects.find(go=>go.name == name)
+    }
+
+    static findGameObjectsWithTag(tag){
+        //same as return SceneManager.currentScene.gameObjects.find(function(go){return go.name == name})//
+        return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
     }
 }

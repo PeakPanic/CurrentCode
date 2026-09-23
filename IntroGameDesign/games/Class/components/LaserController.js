@@ -15,6 +15,7 @@ class LaserController extends Component{
                 this.gameObject.destroy()
                 let healthComponent = enemyGameObject.getComponent(Health)
                 healthComponent.health -- 
+                Globals.points++
             }
         }
     }

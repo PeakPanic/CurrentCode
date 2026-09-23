@@ -33,6 +33,7 @@ class Engine{
 
     //Updates the current scene
     static update(){
+        SceneManager.currentScene.start()
         SceneManager.currentScene.update()
 
     }
