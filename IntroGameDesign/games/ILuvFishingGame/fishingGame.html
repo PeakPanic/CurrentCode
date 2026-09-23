@@ -19,11 +19,12 @@
        <script src="../../engine/Component.js"></script>
        <script src="../../engine/GameObject.js"></script>
        <script src="../../engine/Scene.js"></script>
+       <script src="../../engine/SceneManager.js"></script>
        <script src="../../engine/components/Polygon.js"></script>
        <script src="../../engine/components/Transform.js"></script>
        <script src="../../engine/Time.js"></script>
        
-       <script src="./scenes/MainScene.js"></script>
+       <script src="./scenes/FishEasyScene.js"></script>
 
        <script src="./components/PlayerHookController.js"></script>
        <script src="./components/FishingLineController.js"></script>
@@ -36,10 +37,10 @@
 
 
        <script src="Assets.js"></script>
+       <script src="Globals.js"></script>
 
        <script>
-            SceneManager.currentScene = new MainScene()
-            Engine.start()
+            Engine.start(FishEasyScene)
 
        </script>
     </body>

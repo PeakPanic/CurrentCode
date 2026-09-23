@@ -1,4 +1,4 @@
-class MainScene extends Scene{
+class FishEasyScene extends Scene{
     screenWidth = window.innerWidth
     screenHeight = window.innerHeight
     constructor(){
