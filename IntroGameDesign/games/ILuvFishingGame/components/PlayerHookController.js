@@ -15,13 +15,13 @@ class PlayerHookController extends Component{
             this.timeSinceLastFish = 0
         }
 
-        if(Input.keysDown.includes("KeyW"))
+        if(Input.keysDown.includes("KeyW") && this.transform.position.y >= 0)
             this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyA"))
+        if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0)
             this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyS"))
+        if(Input.keysDown.includes("KeyS") && this.transform.position.y < window.innerHeight)
             this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyD"))
+        if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth)
             this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
 
         let myPosition = this.transform.position
@@ -29,8 +29,9 @@ class PlayerHookController extends Component{
         for(const fishObject of fishObjects){
             let fishPosition = fishObject.transform.position
             let distance = myPosition.minus(fishPosition).magnitude
-            if(distance < 50){
+            if(distance < 40){
                 fishObject.destroy()
+                Globals.score++
             }
         }
     }

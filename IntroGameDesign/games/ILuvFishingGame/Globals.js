@@ -1,4 +1,4 @@
 class Globals{
-    static points = 0
+    static score = 0
     static time_played = 0
 }

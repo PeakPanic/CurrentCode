@@ -23,8 +23,8 @@ class Assets{
 
     static line = [
         new Vector2(-1,0),
-        new Vector2(-1,-window.innerHeight),
-        new Vector2(1,-window.innerHeight),
+        new Vector2(-1,-window.innerHeight - 10),
+        new Vector2(1,-window.innerHeight - 10),
         new Vector2(1,0),
         new Vector2(-1,0)
     ]
