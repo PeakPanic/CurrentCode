@@ -1,5 +1,5 @@
 class PlayerHookController extends Component{
-    speed = 100
+    speed = 150
 
     start(){
     this.timeSinceLastFish = 0
@@ -11,7 +11,7 @@ class PlayerHookController extends Component{
         this.totalTime += 1 
 
         if(this.timeSinceLastFish == 200){
-            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random(), window.innerHeight + 20))
+            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random(), window.innerHeight + 20), Math.PI)
             this.timeSinceLastFish = 0
         }
 

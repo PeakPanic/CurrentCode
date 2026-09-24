@@ -5,6 +5,14 @@ class Assets{
         new Vector2(-10, 10),
     ]
 
+    static rectangle = [
+        new Vector2(-7,-7),
+        new Vector2(7,-7),
+        new Vector2(7,30),
+        new Vector2(-7,30),
+        //new Vector2(-7,-7),
+    ]
+
     static line = [
         new Vector2(-1,0),
         new Vector2(-1,-window.innerHeight),
