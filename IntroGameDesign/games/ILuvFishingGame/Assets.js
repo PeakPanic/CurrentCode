@@ -8,8 +8,8 @@ class Assets{
     static rectangle = [
         new Vector2(-7,-7),
         new Vector2(7,-7),
-        new Vector2(7,25),
-        new Vector2(-7,25),
+        new Vector2(7,20),
+        new Vector2(-7,20),
         //new Vector2(-7,-7),
     ]
 
