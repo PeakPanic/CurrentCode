@@ -1,5 +1,5 @@
 class FishController extends Component{
-    randomSpeed = Math.floor(Math.random() * 5)
+    randomSpeed = Math.floor(Math.random() * 4) + 1
 
     update(){
         if(this.transform.position.y < -20){

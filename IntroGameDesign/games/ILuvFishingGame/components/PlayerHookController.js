@@ -29,7 +29,7 @@ class PlayerHookController extends Component{
         for(const fishObject of fishObjects){
             let fishPosition = fishObject.transform.position
             let distance = myPosition.minus(fishPosition).magnitude
-            if(distance < 20){
+            if(distance < 50){
                 fishObject.destroy()
             }
         }
