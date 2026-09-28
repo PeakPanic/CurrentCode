@@ -5,6 +5,7 @@ class Scene{
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
         gameObject.transform.rotation = rotation
+        return gameObject;
     }
 
     start(){
@@ -36,5 +37,5 @@ class Scene{
 }
 
 function instantiate(gameObject, position = new Vector2(0, 0), rotation = 0){
-    SceneManager.currentScene.instantiate(gameObject, position, rotation)
+    return SceneManager.currentScene.instantiate(gameObject, position, rotation)
 }

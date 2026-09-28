@@ -1,10 +1,9 @@
 class LevelController extends Component{
     start(){
-        SceneManager.loadScene(FishEasyScene, true)
     }
 
     update(){
-        if(Globals.time_played == 300){
+        if(Input.keysDown.includes("Space")){
             SceneManager.loadScene(FishEasyScene)
         }
     }

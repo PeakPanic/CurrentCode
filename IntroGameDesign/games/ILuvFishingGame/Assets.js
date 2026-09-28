@@ -28,11 +28,21 @@ class Assets{
         new Vector2(1,0),
         new Vector2(-1,0)
     ]
+
     static screen_rectangle = [
         new Vector2(0,0),
         new Vector2(window.innerWidth,0),
         new Vector2(window.innerWidth,300),
         new Vector2(0,300),
         new Vector2(0,0),
+    ]
+
+    static boat = [
+        new Vector2(-40, -25),
+        new Vector2(40, -25),
+        new Vector2(20, 0),
+        new Vector2(-20, 0),
+        new Vector2(-40, -25),
+
     ]
 }
