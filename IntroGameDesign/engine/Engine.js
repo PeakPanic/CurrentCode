@@ -3,6 +3,8 @@ class Engine{
     
     static ctx
 
+    static layers = ["default", "UI"]
+
     static start(nextScene){
         //Makes the canvas an actual element named canvas
         Engine.canvas = document.querySelector("#canv")

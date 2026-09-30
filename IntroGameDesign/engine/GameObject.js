@@ -7,14 +7,17 @@ class GameObject{
 
     tags = []
 
+    layer = "default"
+
     get transform(){
         return this.components[0];
     }
 
-    constructor(name, tags = []){
+    constructor(name, tags = [], layer = "default"){
         this.addComponent(new Transform())
         this.name = name
         this.tags = tags
+        this.layer = layer
     }
 
     //This adds a component to an object and along with parameters for it
@@ -22,6 +25,12 @@ class GameObject{
         Object.assign(component, parameters)
         this.components.push(component)
         component.gameObject = this
+    }
+
+    broadcastMessage(message, args = []){
+        for(const component of this.components){
+            component[message]?.(...args)
+        }
     }
 
     start(){
@@ -60,4 +69,9 @@ class GameObject{
         //same as return SceneManager.currentScene.gameObjects.find(function(go){return go.name == name})//
         return SceneManager.currentScene.gameObjects.filter(go=>go.tags.includes(tag))
     }
+
+    static findGameObjectsByType(type){
+        return SceneManager.currentScene.gameObjects.filter(go=>go.components.find(c=>c instanceof type))
+    }
+
 }
