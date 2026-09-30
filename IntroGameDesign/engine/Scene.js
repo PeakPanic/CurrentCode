@@ -42,9 +42,12 @@ class Scene{
     ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
     ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
 
+    for(const layer of Engine.layers.filter(l=>l != "UI")){
         for(const gameObject of this.gameObjects.filter(go=>go.layer != "UI")){
-            gameObject.draw(ctx)
+        gameObject.draw(ctx)
         }
+    }
+
 
     ctx.restore()
     //Stop Camera code

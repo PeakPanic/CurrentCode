@@ -5,7 +5,7 @@ class Engine{
 
     static layers = ["default", "UI"]
 
-    static start(nextScene){
+    static start(nextScene, settings){
         //Makes the canvas an actual element named canvas
         Engine.canvas = document.querySelector("#canv")
         //Lets the browser know we are working in 2D
@@ -17,6 +17,9 @@ class Engine{
 
         SceneManager.nextScene = nextScene
 
+        if(settings){
+            Engine.layers = settings.layers
+        }
         //Loops whenever the browser can
         requestAnimationFrame(Engine.gameLoop)
     }
