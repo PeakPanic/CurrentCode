@@ -34,31 +34,30 @@ class Scene{
     }
 
     draw(ctx){
-    ctx.fillStyle = Camera.main.backgroundColor
-    ctx.fillRect(0,0,Engine.canvas.width, Engine.canvas.height)
+        ctx.fillStyle = Camera.main.backgroundColor
+        ctx.fillRect(0,0,Engine.canvas.width, Engine.canvas.height)
 
-    //Start Camera code
-    ctx.save()
-    ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
-    ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
+        //Start Camera code
+        ctx.save()
+        ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
+        ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
 
-    for(const layer of Engine.layers.filter(l=>l != "UI")){
-        for(const gameObject of this.gameObjects.filter(go=>go.layer != "UI")){
-        gameObject.draw(ctx)
+        for(const layer of Engine.layers.filter(l=>l != "UI")){
+            for(const gameObject of this.gameObjects.filter(go=>go.layer != "UI")){
+            gameObject.draw(ctx)
+            }
         }
-    }
+    
 
 
-    ctx.restore()
+        ctx.restore()
     //Stop Camera code
 
     //UI Layer
     for(const gameObject of this.gameObjects.filter(go=>go.layer == "UI")){
             gameObject.draw(ctx)
         }
-
     }
-
 }
 
 function instantiate(gameObject, position = new Vector2(0, 0), rotation = 0){
