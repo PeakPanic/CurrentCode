@@ -16,7 +16,7 @@ class LaserController extends Component{
                 let healthComponent = enemyGameObject.getComponent(Health)
                 healthComponent.health -- 
                 //Globals.points++
-                let gameObjects = this.gameObject.findGameObjectsByType(Transform)
+                let gameObjects = GameObject.findGameObjectsByType(Transform)
                 for(const gameObject of gameObjects){
                     this.gameObject.broadcastMessage("updatePoints", [1])
                 }
