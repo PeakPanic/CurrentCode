@@ -18,7 +18,7 @@ class LaserController extends Component{
                 //Globals.points++
                 let gameObjects = GameObject.findGameObjectsByType(Transform)
                 for(const gameObject of gameObjects){
-                    this.gameObject.broadcastMessage("updatePoints", [1])
+                    gameObject.broadcastMessage("updatePoints", [1])
                 }
             }
         }
