@@ -5,6 +5,7 @@ class StartMenuController extends Component{
     if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0 && this.acceleration > -150){
         this.acceleration -= 1
     }
+
     else if(this.acceleration < 0){
         this.acceleration += 1
     }
@@ -17,6 +18,5 @@ class StartMenuController extends Component{
     }
 
     this.transform.position.x = this.transform.position.x + Time.deltaTime * this.acceleration
-
     }
 }
