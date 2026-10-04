@@ -2,7 +2,7 @@ class StartMenuController extends Component{
     acceleration = 0
 
     update(){
-    if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0 && this.acceleration > -150){
+    if(Input.keysDown.includes("KeyA") && this.transform.position.x >= -window.innerWidth/2 && this.acceleration > -150){
         this.acceleration -= 1
     }
 
@@ -10,7 +10,7 @@ class StartMenuController extends Component{
         this.acceleration += 1
     }
 
-    if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth && this.acceleration < 150){
+    if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth/2 && this.acceleration < 150){
         this.acceleration += 1
     }
     else if(this.acceleration > 0){

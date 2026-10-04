@@ -15,14 +15,16 @@ class PlayerHookController extends Component{
             this.timeSinceLastFish = 0
         }
 
-        if(Input.keysDown.includes("KeyW") && this.transform.position.y >= 0)
-            this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0)
-            this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyS") && this.transform.position.y < window.innerHeight)
-            this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
-        if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth)
-            this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
+        if(!GameObject.find("Boat")){
+            if(Input.keysDown.includes("KeyW") && this.transform.position.y >= 0)
+                this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
+            if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0)
+                this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
+            if(Input.keysDown.includes("KeyS") && this.transform.position.y < window.innerHeight)
+                this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
+            if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth)
+                this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
+    }
 
         let myPosition = this.transform.position
         let fishObjects = GameObject.findGameObjectsWithTag("Fish")    
