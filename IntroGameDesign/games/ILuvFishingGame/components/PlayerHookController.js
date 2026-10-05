@@ -10,19 +10,19 @@ class PlayerHookController extends Component{
         this.timeSinceLastFish += 1
         this.totalTime += 1 
 
-        if(this.timeSinceLastFish == 200){
-            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random(), window.innerHeight + 20), Math.PI)
+        if(this.timeSinceLastFish > 160 && !GameObject.find("Boat")){
+            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random() - window.innerWidth/2, window.innerHeight/2 + 20), Math.PI)
             this.timeSinceLastFish = 0
         }
 
         if(!GameObject.find("Boat")){
-            if(Input.keysDown.includes("KeyW") && this.transform.position.y >= 0)
+            if(Input.keysDown.includes("KeyW") && this.transform.position.y >= -window.innerHeight/2)
                 this.transform.position.y = this.transform.position.y - Time.deltaTime * this.speed
-            if(Input.keysDown.includes("KeyA") && this.transform.position.x >= 0)
+            if(Input.keysDown.includes("KeyA") && this.transform.position.x >= -window.innerWidth/2)
                 this.transform.position.x = this.transform.position.x - Time.deltaTime * this.speed
-            if(Input.keysDown.includes("KeyS") && this.transform.position.y < window.innerHeight)
+            if(Input.keysDown.includes("KeyS") && this.transform.position.y < window.innerHeight/2)
                 this.transform.position.y = this.transform.position.y + Time.deltaTime * this.speed
-            if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth)
+            if(Input.keysDown.includes("KeyD") && this.transform.position.x <= window.innerWidth/2)
                 this.transform.position.x = this.transform.position.x + Time.deltaTime * this.speed
     }
 
