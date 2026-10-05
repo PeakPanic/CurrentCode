@@ -2,7 +2,7 @@ class BubbleController extends Component{
     randomSpeed = Math.floor(Math.random() * 10) + 1
 
     update(){
-        this.gameObject.getComponent(TextLabel).fillStyle = "White"
+        this.gameObject.getComponent(TextLabel).fillStyle = "rgba(255, 255, 255, 0.5)"
         this.gameObject.getComponent(TextLabel).font ="100px Arial"
         this.gameObject.getComponent(TextLabel).text ="o"
 
