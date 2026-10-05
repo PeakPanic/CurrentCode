@@ -11,11 +11,11 @@ class Polygon extends Component {
         //Sets the center of the object
         ctx.translate(this.transform.position.x, this.transform.position.y)
 
+        ctx.rotate(this.transform.rotation)
+
         ctx.scale(this.transform.scale.x, this.transform.scale.y)
         
-        ctx.rotate(this.transform.rotation)
-        
-
+    
         ctx.beginPath()
         //Draws the polygon with any number of points
         for(const point of this.points) {
