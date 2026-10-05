@@ -4,7 +4,7 @@ class LevelController extends Component{
     }
 
     update(){
-        if(Input.keysDown.includes("Space")){
+        if(Input.keysDown.includes("Space") && Globals.score == 0){
             SceneManager.loadScene(FishEasyScene)
         }
     }
