@@ -4,9 +4,9 @@ class BubbleController extends Component{
         this.gameObject.getComponent(TextLabel).font ="100px Arial"
         this.gameObject.getComponent(TextLabel).text ="o"
 
-        if(this.transform.position.y < -window.innerHeight/2){
+        if(this.transform.position.y < -window.innerHeight){
             this.gameObject.destroy()
         }
-        this.transform.position.y -= Time.deltaTime * 120
+        this.transform.position.y -= Time.deltaTime * 200
     }
 }
