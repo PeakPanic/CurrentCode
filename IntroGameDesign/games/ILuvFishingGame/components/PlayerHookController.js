@@ -87,8 +87,8 @@ class PlayerHookController extends Component{
             let distance = myPosition.minus(bubblePosition).magnitude
             if(distance < 60){
                 bubbleObject.destroy()
-                this.accelerationX += (1000 * (Math.random() - 0.5)) * 1.5
-                this.accelerationY += (1000 * (Math.random() - 0.5)) * 1.5
+                this.accelerationX += (1000 * (Math.random() - 0.5))
+                this.accelerationY += (1000 * (Math.random() - 0.5))
             }
         }
     }
