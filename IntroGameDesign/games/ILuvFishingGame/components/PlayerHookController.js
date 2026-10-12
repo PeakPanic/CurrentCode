@@ -20,7 +20,7 @@ class PlayerHookController extends Component{
         }
 
         if(this.timeSinceLastBubble > 600 && !GameObject.find("Boat")){
-            instantiate(new BubbleObject(), new Vector2(window.innerWidth * Math.random() - window.innerWidth/2, window.innerHeight/2 + 20), Math.PI)
+            instantiate(new BubbleObject(), new Vector2(window.innerWidth * Math.random() - window.innerWidth/2, window.innerHeight/2 + 20))
             this.timeSinceLastBubble = 0
         }
 
