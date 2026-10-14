@@ -15,7 +15,7 @@ class FishController extends Component{
     }
 
     update(){
-        if(this.transform.position.x > window.innerWidth/2 + 20){
+        if(this.transform.position.x > window.innerWidth/2 + 40){
             this.gameObject.destroy()
         }
         if(!this.gotCaught)
