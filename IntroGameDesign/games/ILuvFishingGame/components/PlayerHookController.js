@@ -14,8 +14,8 @@ class PlayerHookController extends Component{
         this.timeSinceLastBubble += 1
         this.totalTime += 1 
 
-        if(this.timeSinceLastFish > 160 && !GameObject.find("Boat")){
-            instantiate(new FishObject(), new Vector2(window.innerWidth * Math.random() - window.innerWidth/2, window.innerHeight/2 + 20), Math.PI)
+        if(this.timeSinceLastFish > 100 && !GameObject.find("Boat")){
+            instantiate(new FishObject(), new Vector2(-window.innerWidth/2 - 20, window.innerHeight * Math.random() - window.innerHeight/2 + 5), -Math.PI/2)
             this.timeSinceLastFish = 0
         }
 
@@ -76,8 +76,10 @@ class PlayerHookController extends Component{
             let fishPosition = fishObject.transform.position
             let distance = myPosition.minus(fishPosition).magnitude
             if(distance < 40){
-                fishObject.destroy()
-                Globals.score++
+                fishObject.transform.setParent(this.transform)
+                // fishObject.transform.position = new Vector2(Math.floor(Math.random() - 0.5 * 25), 50)
+                // fishObject.transform.rotation = Math.PI
+                fishObject.broadcastMessage("caught")
             }
         }
 
