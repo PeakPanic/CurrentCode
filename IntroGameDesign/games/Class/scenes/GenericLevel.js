@@ -13,5 +13,9 @@ class GenericLevel extends Scene{
         sceneTimer.addComponent(new SceneTimerComponent())
         this.instantiate(sceneTimer, new Vector2(0,50))
 
+        let wrappedText = new GameObject("Wrappedtext",[],"UI")
+        wrappedText.addComponent(new MultiLineTextLabel(), {fillStyle:"gray", text: "We the people of the united states of america will not capitalize anything but the first word of the scentence", font:"30px Times"})
+        this.instantiate(wrappedText, new Vector2(0, 100))
+
     }
 }
