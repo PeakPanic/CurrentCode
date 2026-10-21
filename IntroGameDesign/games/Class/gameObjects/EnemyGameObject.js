@@ -5,5 +5,6 @@ class EnemyGameObject extends GameObject{
         this.addComponent(new EnemyController())
         this.addComponent(new Polygon(), {fillStyle: "orange", points:  Assets.triangle})
         this.addComponent(new Health(), {health:2})
+        this.addComponent(new Collider())
     }
 }
