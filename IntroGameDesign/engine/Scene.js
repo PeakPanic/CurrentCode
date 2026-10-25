@@ -47,7 +47,7 @@ class Scene{
 
         for(let i = 0; i < collidable.length; i++){
             for(let j = i + 1; j < collidable.length; j++){
-                if(Collisions.isCollisionPolygonPolygon(collidable(i), collidable(j))){
+                if(Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j])){
                     collidable[i].broadcastMessage("onCollisionStay", [collidable[j]])
                     collidable[j].broadcastMessage("onCollisionStay", [collidable[i]])
                 }
