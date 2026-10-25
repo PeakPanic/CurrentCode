@@ -12,7 +12,7 @@ class Collisions{
         //find axes for projection
         for(let i = 0; i < worldSpacePoints.length; i++){
             let point1 = worldSpacePoints[i]
-            let point2 = worldSpacePoints[(i=1)%worldSpacePoints.length]
+            let point2 = worldSpacePoints[(i+1)%worldSpacePoints.length]
             let edge = point2.minus(point1)
             let axis = edge.orthogonal()
 
@@ -47,7 +47,7 @@ class Collisions{
         //find axes for projection
         for(let i = 0; i < worldSpacePoints.length; i++){
             let point1 = worldSpacePoints[i]
-            let point2 = worldSpacePoints[(i=1)%worldSpacePoints.length]
+            let point2 = worldSpacePoints[(i+1)%worldSpacePoints.length]
             let edge = point2.minus(point1)
             let axis = edge.orthogonal()
             axes.push(axis)
@@ -55,7 +55,7 @@ class Collisions{
 
         for(let i = 0; i < worldSpacePointsTwo.length; i++){
             let point1 = worldSpacePointsTwo[i]
-            let point2 = worldSpacePointsTwo[(i=1)%worldSpacePointsTwo.length]
+            let point2 = worldSpacePointsTwo[(i+1)%worldSpacePointsTwo.length]
             let edge = point2.minus(point1)
             let axis = edge.orthogonal()
             axes.push(axis)
