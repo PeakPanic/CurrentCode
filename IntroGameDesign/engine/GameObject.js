@@ -10,7 +10,7 @@ class GameObject{
     layer = "default"
 
     get transform(){
-        return this.components[0];
+        return (this.components[0]);
     }
 
     constructor(name, tags = [], layer = "default"){

@@ -15,15 +15,15 @@ class MultiLineTextLabel extends Component{
         let y = 0
         let safeLine = ""
         let possibleLine = ""
-        for(let word of this.text.split("")){
-            possibleLine = safeLine + " " + word
+        for(let word of this.text.split(" ")){
+            possibleLine = safeLine + word + " "
             if(ctx.measureText(possibleLine).width > this.maxWidth){
                 ctx.fillText(safeLine, 0, y)
                 y += fontHeight
-                safeLine = word
+                safeLine = word + " "
             }
             else{
-                safeLine = possibleLine
+                safeLine = safeLine
             }
 
         }

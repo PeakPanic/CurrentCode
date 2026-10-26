@@ -14,7 +14,7 @@ class Scene{
         this.gameObjects.push(gameObject)
         gameObject.transform.position = position
         gameObject.transform.rotation = rotation
-        return gameObject;
+        return gameObject
     }
 
     start(){
@@ -77,7 +77,7 @@ class Scene{
         ctx.setTransform(ctx.getTransform().multiply(Camera.main.transform.getWorldMatrix().inverse()))
 
         for(const layer of Engine.layers.filter(l=>l != "UI")){
-            for(const gameObject of this.gameObjects.filter(go=>go.layer != "UI")){
+            for(const gameObject of this.gameObjects.filter(go => go.layer == layer)){
             gameObject.draw(ctx)
             }
         }

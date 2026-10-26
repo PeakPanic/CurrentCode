@@ -13,13 +13,15 @@ class Input{
 
 
     static mousemove(event){
-        if(Input.mousePosition)
+        if(Input.mousePosition){
             Input.mousePositionLastFrame = Input.mousePosition
+        }
 
         Input.mousePosition = new Vector2(event.clientX, event.clientY)
 
-        if(Input.mousePositionLastFrame)
+        if(Input.mousePositionLastFrame){
             Input.mouseDelta = Input.mousePosition.minus(Input.mousePositionLastFrame)
+        }
 
     }
 
