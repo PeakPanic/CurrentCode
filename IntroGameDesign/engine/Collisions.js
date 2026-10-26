@@ -4,8 +4,9 @@ class Collisions{
         let worldSpacePoints = []
         for(let point of gameObject.getComponent(Collider).points){
             worldSpacePoints.push(
-                new Vector2(gameObject.transform.getWorldMatrix().transform(point).x,
-                 gameObject.transform.getWorldMatrix().transform(point).y)
+                new Vector2(
+                    gameObject.transform.getWorldMatrix().transformPoint(point).x,
+                    gameObject.transform.getWorldMatrix().transformPoint(point).y)
             )
         }
 
@@ -18,8 +19,8 @@ class Collisions{
 
             //look for overlap
             let pointProjection = point.dot(axis)
-            let polygonProjection = worldSpacePoints.map(p=>p.dot(axis))
-            if(pointProjection < Math.min(...polygonProjection) || pointProjection > Math.max(...polygonProjection))
+            let polygonProjections = worldSpacePoints.map(p=>p.dot(axis))
+            if(pointProjection < Math.min(...polygonProjections) || pointProjection > Math.max(...polygonProjections))
                 return false
         }
 
@@ -30,16 +31,18 @@ class Collisions{
         let worldSpacePoints = []
         for(let point of gameObject.getComponent(Collider).points){
             worldSpacePoints.push(
-                new Vector2(gameObject.transform.getWorldMatrix().transform(point).x,
-                 gameObject.transform.getWorldMatrix().transform(point).y)
+                new Vector2(
+                    gameObject.transform.getWorldMatrix().transformPoint(point).x,
+                    gameObject.transform.getWorldMatrix().transformPoint(point).y)
             )
         }
 
         let worldSpacePointsTwo = []
         for(let point of gameObjectTwo.getComponent(Collider).points){
             worldSpacePointsTwo.push(
-                new Vector2(gameObjectTwo.transform.getWorldMatrix().transform(point).x,
-                 gameObjectTwo.transform.getWorldMatrix().transform(point).y)
+                new Vector2(
+                    gameObjectTwo.transform.getWorldMatrix().transformPoint(point).x,
+                    gameObjectTwo.transform.getWorldMatrix().transformPoint(point).y)
             )
         }
 
@@ -63,9 +66,9 @@ class Collisions{
 
         for(const axis of axes){
             //look for overlap
-            let polygonProjection = worldSpacePoints.map(p=>p.dot(axis))
-            let polygonProjectionTwo = worldSpacePointsTwo.map(p=>p.dot(axis))
-            if(Math.max(...polygonProjectionTwo) < Math.min(...polygonProjection) || Math.min(...polygonProjectionTwo) > Math.max(...polygonProjection))
+            let polygonProjections = worldSpacePoints.map(p=>p.dot(axis))
+            let polygonProjectionsTwo = worldSpacePointsTwo.map(p=>p.dot(axis))
+            if(Math.max(...polygonProjectionsTwo) < Math.min(...polygonProjections) || Math.min(...polygonProjectionsTwo) > Math.max(...polygonProjections))
                 return false
         }
 

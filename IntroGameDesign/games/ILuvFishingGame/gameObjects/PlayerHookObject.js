@@ -4,6 +4,6 @@ class PlayerHookObject extends GameObject{
         this.addComponent(new PlayerHookController())
         this.addComponent(new Polygon(), {fillStyle: "black", points:Assets.rectangle})
         this.addComponent(new Polygon(), {fillStyle: "black", points:Assets.hook})
-        //this.addComponent(new Collider())
+        this.addComponent(new Collider())
     }
 }
