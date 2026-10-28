@@ -1,5 +1,5 @@
 class Camera extends Component{
-    backgroundColor = "black"
+    backgroundColor = "white"
 
 
     static get main(){
