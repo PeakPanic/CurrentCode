@@ -3,5 +3,6 @@ class BubbleObject extends GameObject{
         super("Bubble", ["Bubble"], "fish")
         this.addComponent(new TextLabel(), {text:"PlaceHolder"})
         this.addComponent(new BubbleController)
+        this.addComponent(new Collider())
     }
 }
