@@ -10,7 +10,7 @@ class PlayerHookController extends Component{
     }
 
     onCollisionStay(){
-        
+
     }
 
     update(){
@@ -46,26 +46,26 @@ class PlayerHookController extends Component{
             let distance = myPosition.minus(fishPosition).magnitude
             if(distance < 40){
                 fishObject.transform.setParent(this.transform)
-                // fishObject.transform.position = new Vector2(Math.floor(Math.random() - 0.5 * 25), 50)
-                // fishObject.transform.rotation = Math.PI
+                fishObject.transform.position = new Vector2(Math.floor(Math.random() - 0.5 * 25), 50)
+                fishObject.transform.rotation = Math.PI
                 fishObject.broadcastMessage("caught")
             }
         }
         
-        // let bubbleObjects = GameObject.findGameObjectsWithTag("Bubble")    
-        // for(const bubbleObject of bubbleObjects){
-        //     let bubblePosition = bubbleObject.transform.position
-        //     let distance = myPosition.minus(bubblePosition).magnitude
-        //     if(distance < 60){
-        //         for(const fishObject of fishObjects){
-        //             if(fishObject.getComponent(FishController).gotCaught)
-        //                 fishObject.destroy()
-        //         }
-        //         bubbleObject.destroy()
-        //         this.accelerationX += (1000 * (Math.random() - 0.5))
-        //         this.accelerationY += (1000 * (Math.random() - 0.5))
-        //     }
-        // }
+        let bubbleObjects = GameObject.findGameObjectsWithTag("Bubble")    
+        for(const bubbleObject of bubbleObjects){
+            let bubblePosition = bubbleObject.transform.position
+            let distance = myPosition.minus(bubblePosition).magnitude
+            if(distance < 60){
+                for(const fishObject of fishObjects){
+                    if(fishObject.getComponent(FishController).gotCaught)
+                        fishObject.destroy()
+                }
+                bubbleObject.destroy()
+                this.accelerationX += (1000 * (Math.random() - 0.5))
+                this.accelerationY += (1000 * (Math.random() - 0.5))
+            }
+        }
 
         if(!GameObject.find("Boat")){
             if(Input.keysDown.includes("KeyW") && this.accelerationY > -this.speed)
@@ -84,15 +84,15 @@ class PlayerHookController extends Component{
                 this.transform.position.y = window.innerHeight/2
             else if(this.transform.position.y < -window.innerHeight/2){
                 this.transform.position.y = -window.innerHeight/2
-                // let caughtFish = []
-                // for(const fishObject of fishObjects){
-                //     if(fishObject.getComponent(FishController).gotCaught)
-                //         caughtFish.push(fishObject)
-                // }
-                // for(const fish of caughtFish){
-                //     fish.destroy()
-                //     Globals.score++
-                //}
+                let caughtFish = []
+                for(const fishObject of fishObjects){
+                    if(fishObject.getComponent(FishController).gotCaught)
+                        caughtFish.push(fishObject)
+                }
+                for(const fish of caughtFish){
+                    fish.destroy()
+                    Globals.score++
+                }
             }
 
             if(this.transform.position.x > window.innerWidth/2)

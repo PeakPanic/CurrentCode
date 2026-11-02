@@ -4,6 +4,6 @@ class FishObject extends GameObject{
         this.addComponent(new FishController)
         this.addComponent(new Polygon(), {fillStyle:"Blue", points:Assets.triangle})
         this.addComponent(new Polygon(), {fillStyle:"Blue", points:Assets.rectangle})
-        this.addComponent(new Collider())
+        // this.addComponent(new Collider())
     }
 }

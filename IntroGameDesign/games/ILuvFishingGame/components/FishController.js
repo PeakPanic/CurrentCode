@@ -8,11 +8,11 @@ class FishController extends Component{
         this.transform.scale = new Vector2(this.randomSpeed/4+0.5, this.randomSpeed/4+0.5)
     }
 
-    // caught(){
-    //     this.gotCaught = true
-    //     this.transform.position = new Vector2(Math.floor((Math.random() - 0.5) * 25), 50)
-    //     this.transform.rotation = Math.PI
-    // }
+    caught(){
+        this.gotCaught = true
+        this.transform.position = new Vector2(Math.floor((Math.random() - 0.5) * 25), 50)
+        this.transform.rotation = Math.PI
+    }
 
     update(){
         if(this.transform.position.x > window.innerWidth/2 + 40){
@@ -20,13 +20,9 @@ class FishController extends Component{
         }
         if(!this.gotCaught)
             this.transform.position.x += Time.deltaTime * 30 * this.randomSpeed
-        else{
-           this.transform.position = new Vector2(Math.floor((Math.random() - 0.5) * 25), 50)
-           this.transform.rotation = Math.PI 
-        }
     }
 
-    onCollisionStay(){
-        this.gotCaught = true
-    }
+    // onCollisionStay(){
+    //     this.gotCaught = true
+    // }
 }
