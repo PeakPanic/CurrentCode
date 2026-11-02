@@ -2,7 +2,9 @@ class TextLabel extends Component{
     fillStyle = "black"
     text = "[Blank]"
     font = "10px Arial"  //Sizepx Font
-    
+    textAlign = "left"
+    textBaseline = "alphabetic"
+
     draw(ctx){
         ctx.save()
 
@@ -13,6 +15,8 @@ class TextLabel extends Component{
         ctx.fillStyle = this.fillStyle
         ctx.font = this.font
         ctx.fillText(this.text, 0,0)
+        ctx.textAlign = this.textAlign
+        ctx.textBaseline = this.textBaseline
 
         ctx.restore()
     }
