@@ -36,8 +36,15 @@ class Scene{
 
             let worldPositionDOMPoint = matrix.inverse().transformPoint(Input.mousePosition)
             let worldPosition = new Vector2(worldPositionDOMPoint.x, worldPositionDOMPoint.y)
-            for(const gameObject of collidable){
+
+            for(const gameObject of collidable.filter(c=>c.layer!="UI")){
                 if(Collisions.isCollisionPointPolygon(worldPosition, gameObject)){
+                    gameObject.broadcastMessage("onMouseOver", [])
+                }
+            }
+
+            for(const gameObject of collidable.filter(c=>c.layer=="UI")){
+                if(Collisions.isCollisionPointPolygon(Input.mousePosition, gameObject)){
                     gameObject.broadcastMessage("onMouseOver", [])
                 }
             }
