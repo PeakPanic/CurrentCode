@@ -24,6 +24,10 @@ class Scene{
     }
 
     update(){
+        for(const gameObject of this.gameObjects){
+            gameObject.broadcastMessage("fixedUpdate")
+        }
+
 
         //Collisions
         const collidable = GameObject.findGameObjectsByType(Collider)
@@ -37,30 +41,38 @@ class Scene{
             let worldPositionDOMPoint = matrix.inverse().transformPoint(Input.mousePosition)
             let worldPosition = new Vector2(worldPositionDOMPoint.x, worldPositionDOMPoint.y)
 
-            for(const gameObject of collidable.filter(c=>c.layer!="UI")){
-                if(Collisions.isCollisionPointPolygon(worldPosition, gameObject)){
+            for(const gameObject of collidable){
+                if(Collisions.isCollisionPointPolygon(collidable.layer == "UI" ? Input.mousePosition : worldPosition, gameObject)){
                     gameObject.broadcastMessage("onMouseOver", [])
                 }
             }
 
-            for(const gameObject of collidable.filter(c=>c.layer=="UI")){
-                if(Collisions.isCollisionPointPolygon(Input.mousePosition, gameObject)){
-                    gameObject.broadcastMessage("onMouseOver", [])
-                }
-            }
+        //     for(const gameObject of collidable.filter(c=>c.layer=="UI")){
+        //         if(Collisions.isCollisionPointPolygon(Input.mousePosition, gameObject)){
+        //             gameObject.broadcastMessage("onMouseOver", [])
+        //         }
+        //     }
+        // }
         }
-
 
         const physicalCollisions = []
         for(let i = 0; i < collidable.length; i++){
             for(let j = i + 1; j < collidable.length; j++){
+                const one = collidable[i]
+                const two = collidable[j]
+                if (!one.getComponent(RigidBody) && !two.getComponent(RigidBody))
+                    continue
+
                 const minimumTransformVector = Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j])
                 if(minimumTransformVector){
+                    if(!one.getComponent(Collider).isTrigger && !two.getComponent(Collider).isTrigger){
                     collidable[i].broadcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
                     collidable[j].broadcastMessage("onCollisionStay", [collidable[i], minimumTransformVector.scaled(-1)])
-
-                    if (collidable[i].getComponent(RigidBody) || collidable[j].getComponent(RigidBody)){
-                        physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
+                    physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
+                    }
+                    else{
+                        collidable[i].broadcastMessage("onTriggerStay", [collidable[j], minimumTransformVector]) 
+                        collidable[j].broadcastMessage("onTriggerStay", [collidable[i], minimumTransformVector.scaled(-1)]) 
                     }
                 }
             }
@@ -89,7 +101,7 @@ class Scene{
                 temp.push(gameObject)
         }
         this.gameObjects = temp
-    }
+     }
 
     draw(ctx){
         ctx.fillStyle = Camera.main.backgroundColor

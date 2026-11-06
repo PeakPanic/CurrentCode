@@ -13,7 +13,7 @@ class GameObject{
         return (this.components[0]);
     }
 
-    constructor(name, tags = [], layer = "default"){
+    constructor(name, tags = [], layer = 'default'){
         this.addComponent(new Transform())
         this.name = name
         this.tags = tags
