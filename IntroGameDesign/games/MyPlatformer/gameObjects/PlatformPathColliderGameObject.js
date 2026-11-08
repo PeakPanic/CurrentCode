@@ -3,6 +3,6 @@ class PlatformPathColliderGameObject extends GameObject{
         super("PlatformPathColliderGameObject", [], "background")
         //this.addComponent(new Polygon(), {fillStyle: 'magenta', points: Assets.triangle})
         this.addComponent(new Collider(), {points: Assets.square})
-        this.transform.scale = new Vector2(350,15)
+        this.transform.scale = new Vector2(1000,15)
     }
 }
