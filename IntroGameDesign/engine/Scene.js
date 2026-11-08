@@ -66,9 +66,9 @@ class Scene{
                 const minimumTransformVector = Collisions.isCollisionPolygonPolygon(collidable[i], collidable[j])
                 if(minimumTransformVector){
                     if(!one.getComponent(Collider).isTrigger && !two.getComponent(Collider).isTrigger){
-                    collidable[i].broadcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
-                    collidable[j].broadcastMessage("onCollisionStay", [collidable[i], minimumTransformVector.scaled(-1)])
-                    physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
+                        collidable[i].broadcastMessage("onCollisionStay", [collidable[j], minimumTransformVector])
+                        collidable[j].broadcastMessage("onCollisionStay", [collidable[i], minimumTransformVector.scaled(-1)])
+                        physicalCollisions.push({one:collidable[i], two:collidable[j], minimumTransformVector})
                     }
                     else{
                         collidable[i].broadcastMessage("onTriggerStay", [collidable[j], minimumTransformVector]) 

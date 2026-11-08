@@ -2,7 +2,12 @@ class SquareController extends Component {
   speed = 150
   jump = 250
   start() {
+    this.isGrounded = false
+    this.ridgidBody = this.gameObject.getComponent(RigidBody)
+  }
 
+  fixed_update(){
+    
   }
 
   update() {
