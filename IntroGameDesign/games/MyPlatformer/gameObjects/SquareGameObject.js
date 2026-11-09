@@ -1,10 +1,10 @@
 class SquareGameObject extends GameObject{
   constructor(){
     super("SquareGameObject", [], "default")
-    this.addComponent(new Polygon(), {fillStyle: "red", points: Assets.square})
+    this.addComponent(new Polygon(), {fillStyle: "blue", points: Assets.square})
     this.addComponent(new SquareController())
     this.addComponent(new Collider())
-    this.addComponent(new RigidBody(), {gravity:250})
+    this.addComponent(new RigidBody(), {gravity:500})
     this.addComponent(new Health(), {health:3})
     this.transform.scale = new Vector2(20, 20)
   }

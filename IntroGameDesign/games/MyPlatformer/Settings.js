@@ -1,3 +1,3 @@
 class Settings{
-    static layers = ["background", "midground", "foreground", "default", "UI"]
+    static layers = ["parallaxbackground","background", "midground", "foreground", "default", "UI"]
 }

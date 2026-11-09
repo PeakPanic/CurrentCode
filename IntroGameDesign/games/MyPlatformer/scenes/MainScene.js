@@ -7,5 +7,6 @@ class MainScene extends Scene{
     this.instantiate(new PlatformPathColliderGameObject(), new Vector2(500, window.innerHeight/2 - 100),0)
     this.instantiate(new TreeGameObject(), new Vector2(0, 40))
     this.instantiate(new CliffGameObject(), new Vector2(-700, -180))
+    this.instantiate(new BasicEnemyGameObject(), new Vector2(1000 , 0))
   }
 }

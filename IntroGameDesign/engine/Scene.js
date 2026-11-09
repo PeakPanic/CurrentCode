@@ -28,10 +28,8 @@ class Scene{
             gameObject.broadcastMessage("fixedUpdate")
         }
 
-
         //Collisions
         const collidable = GameObject.findGameObjectsByType(Collider)
-
 
         if(Input.mousePosition){
             let matrix = new DOMMatrix()
