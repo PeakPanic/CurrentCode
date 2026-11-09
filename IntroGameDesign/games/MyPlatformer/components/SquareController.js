@@ -2,6 +2,7 @@ class SquareController extends Component {
   speed = 250
   jump = 250
   cameraVelocity = 0
+  
   start() {
     this.secondJump = true
     this.isGrounded = false
