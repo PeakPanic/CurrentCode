@@ -15,7 +15,7 @@ class BasicEnemyGameObjectController extends Component{
     }
     
     update(){
-        if(this.timeSinceLastThrow > 300){
+        if(this.timeSinceLastThrow > 200){
             this.throw = true
         }
         this.timeSinceLastThrow++
@@ -49,5 +49,6 @@ class BasicEnemyGameObjectController extends Component{
 
     onCollisionStay(other, minimumTransformVector){
         this.ridgidBody.velocity.y = 0
+        
     }
 }
