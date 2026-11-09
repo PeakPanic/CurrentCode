@@ -30,6 +30,12 @@ class ThrownStickGameObjectController extends Component{
 
     }
 
+    onTriggerStay(other, minimumTransformVector){
+        if(other.name == "SquareGameObject"){
+            other.getComponent(Health).health -= 1
+        }
+    }
+
     onCollisionStay(other, minimumTransformVector){
         this.gameObject.destroy()
     }
