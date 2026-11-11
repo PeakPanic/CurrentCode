@@ -102,12 +102,45 @@ class Scene{
      }
 
     draw(ctx){
+
         ctx.fillStyle = Camera.main.backgroundColor
         ctx.fillRect(0,0,Engine.canvas.width, Engine.canvas.height)
+
+
+        Engine.letterBoxingHeight = 0
+        Engine.letterBoxingWidth = 0
+        if(Engine.aspectRatio){
+            const currentAspectRatio = Engine.canvas.width/Engine.canvas.height
+            if(Engine.aspectRatio > currentAspectRatio){
+                const maxHeight = Engine.canvas.width/Engine.aspectRatio
+                Engine.letterBoxingHeight = Engine.canvas.height - maxHeight
+            }
+            else{
+                const maxWidth = Engine.aspectRatio * Engine.canvas.height
+                Engine.letterBoxingWidth = Engine.canvas.width - maxWidth
+            }
+        }
+
 
         //Start Camera code
         ctx.save()
         ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
+
+        if(Engine.cameraWidthInWorldSpace){
+            const scalar = Engine.cameraWidthInWorldSpace / Engine.canvas.width
+            ctx.scale(1/scalar, 1/scalar)
+        }
+
+        ctx.restore()
+
+        ctx.fillStyle = "black"
+        ctx.fillRect(0, 0, Engine.canvas.width, Engine.letterBoxingHeight/2)
+        ctx.fillRect(0, Engine.canvas.height - Engine.letterBoxingHeight/2, Engine.canvas.width, Engine.letterBoxingHeight/2)
+
+        ctx.fillRect(0, 0, Engine.letterBoxingWidth/2, Engine.canvas.height)
+        ctx.fillRect(Engine.canvas.width - Engine.letterBoxingWidth/2, 0, Engine.letterBoxingWidth/2, Engine.canvas.height)
+
+
         //ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
         ctx.setTransform(ctx.getTransform().multiply(Camera.main.transform.getWorldMatrix().inverse()))
 
