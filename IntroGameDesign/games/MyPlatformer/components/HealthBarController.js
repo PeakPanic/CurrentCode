@@ -5,4 +5,12 @@ class HealthBarController extends Component{
             this.healthNumber++
         }
     }
+
+    healthUp(){
+
+    }
+
+    healthDown(){
+        
+    }
 }
