@@ -14,6 +14,9 @@ class Engine{
 
     static collisionLayers = []
 
+    static lastTimeStep
+
+
     static start(nextScene, settings){
         //Makes the canvas an actual element named canvas
         Engine.canvas = document.querySelector("#canv")
@@ -45,7 +48,16 @@ class Engine{
     }
 
     //This is the game loop, which will run whenever it can
-    static gameLoop(){
+    static gameLoop(timestamp){
+        if(!Engine.lastTimeStep){
+            Engine.lastTimeStep = timestamp
+        }
+        else{
+            const diffInMilliseconds = timestamp - Engine.lastTimeStep
+            const diffInSeconds = diffInMilliseconds/1000
+            Time.deltaTime = Math.min(diffInSeconds, 1/60)
+            Engine.lastTimeStep = timestamp
+        }
         SceneManager.update()
         Engine.update()
         Engine.draw() 
