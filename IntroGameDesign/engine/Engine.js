@@ -12,6 +12,8 @@ class Engine{
     static letterBoxingWidth = 0
     static letterBoxingHeight = 0
 
+    static collisionLayers = []
+
     static start(nextScene, settings){
         //Makes the canvas an actual element named canvas
         Engine.canvas = document.querySelector("#canv")
@@ -34,6 +36,9 @@ class Engine{
             Engine.layers = settings.layers
             Engine.aspectRatio = settings.aspectRatio
             Engine.cameraWidthInWorldSpace = settings.cameraWidthInWorldSpace
+            if(settings.collisionLayers){
+                Engine.collisionLayers = settings.collisionLayers
+            }
         }
         //Loops whenever the browser can
         requestAnimationFrame(Engine.gameLoop)

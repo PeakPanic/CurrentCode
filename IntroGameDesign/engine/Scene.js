@@ -34,6 +34,10 @@ class Scene{
         if(Input.mousePosition){
             let matrix = new DOMMatrix()
             matrix.translateSelf(Engine.canvas.width / 2, Engine.canvas.height / 2)
+            if(Engine.cameraWidthInWorldSpace){
+                const scalar = Engine.cameraWidthInWorldSpace / (Engine.canvas.width - Engine.letterBoxingWidth)
+                matrix.scaleSelf(1 / scalar, 1 / scalar)
+            }
             matrix.multiplySelf(Camera.main.transform.getWorldMatrix().inverse())
 
             let worldPositionDOMPoint = matrix.inverse().transformPoint(Input.mousePosition)
@@ -58,6 +62,12 @@ class Scene{
             for(let j = i + 1; j < collidable.length; j++){
                 const one = collidable[i]
                 const two = collidable[j]
+
+                //continue if the are not in a my collision layers list
+                if(Engine.collisionLayers.length > 0 && !Engine.collisionLayers.some(pair=>(pair[0] == one.layer && pair[1] == two.layer)||(pair[0] == two.layer && pair[1] == one.layer))){
+                    continue
+                }
+
                 if (!one.getComponent(RigidBody) && !two.getComponent(RigidBody))
                     continue
 
@@ -126,10 +136,22 @@ class Scene{
         ctx.save()
         ctx.translate(Engine.canvas.width/2, Engine.canvas.height/2)
 
+        //ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
+        
         if(Engine.cameraWidthInWorldSpace){
-            const scalar = Engine.cameraWidthInWorldSpace / Engine.canvas.width
+            const scalar = Engine.cameraWidthInWorldSpace / (Engine.canvas.width - Engine.letterBoxingWidth)
             ctx.scale(1/scalar, 1/scalar)
         }
+        
+        ctx.setTransform(ctx.getTransform().multiply(Camera.main.transform.getWorldMatrix().inverse()))
+        
+        for(const layer of Engine.layers.filter(l=>l != "UI")){
+            for(const gameObject of this.gameObjects.filter(go => go.layer == layer)){
+            gameObject.draw(ctx)
+            }
+        }
+    
+
 
         ctx.restore()
 
@@ -141,18 +163,7 @@ class Scene{
         ctx.fillRect(Engine.canvas.width - Engine.letterBoxingWidth/2, 0, Engine.letterBoxingWidth/2, Engine.canvas.height)
 
 
-        //ctx.translate(-Camera.main.transform.position.x, -Camera.main.transform.position.y)
-        ctx.setTransform(ctx.getTransform().multiply(Camera.main.transform.getWorldMatrix().inverse()))
 
-        for(const layer of Engine.layers.filter(l=>l != "UI")){
-            for(const gameObject of this.gameObjects.filter(go => go.layer == layer)){
-            gameObject.draw(ctx)
-            }
-        }
-    
-
-
-        ctx.restore()
     //Stop Camera code
 
     //UI Layer
