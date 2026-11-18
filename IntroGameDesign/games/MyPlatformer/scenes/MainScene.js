@@ -8,5 +8,12 @@ class MainScene extends Scene{
     this.instantiate(new TreeGameObject(), new Vector2(0, 40))
     this.instantiate(new CliffGameObject(), new Vector2(-700, -180))
     this.instantiate(new BasicEnemyGameObject(), new Vector2(1000 , 0))
+    
+    const uiButton = this.instantiate(new UIButton())
+    uiButton.transform.anchorMin = new Vector2(0, 0)
+    uiButton.transform.anchorMax = new Vector2(1, 0)
+    uiButton.transform.offsetUpperLeft = new Vector2(50,50)
+    uiButton.transform.offsetLowerRight = new Vector2(-50,150)
+
   }
 }

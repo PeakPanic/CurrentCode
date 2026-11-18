@@ -1,12 +1,15 @@
 class Polygon extends Component {
     fillStyle = "magenta"
     points = []
+    alpha = 1
 
     draw(ctx){
         //Don't worry about the canvas, this section of code is just for drawing the individual
         //polygons displayed during the game running.
 
         ctx.save()
+
+        ctx.globalAlpha = this.alpha
 
         //Sets the center of the object
         // ctx.translate(this.transform.position.x, this.transform.position.y)
