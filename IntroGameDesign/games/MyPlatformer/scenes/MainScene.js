@@ -10,7 +10,7 @@ class MainScene extends Scene{
     this.instantiate(new BasicEnemyGameObject(), new Vector2(1000 , 0))
     this.instantiate(new HealthBarGameObject())
     this.instantiate(new UIButton())
-    this.instantiate(new GlassesTintGameObject())
+    // this.instantiate(new GlassesTintGameObject())
 
     this.instantiate(new HealthHeartGameObject(), new Vector2(0,0))
 

@@ -4,11 +4,13 @@ class UIButtonController extends Component{
     update(){
         if(Input.keysDownThisFrame.includes("KeyG")){
             if(this.glasses){
-                GameObject.find("GlassesTintGameObject").transform.alpha = 0.0
+                let tintObject = GameObject.find("GlassesTintGameObject")
+                tintObject.alpha = 1
                 this.glasses = false
             }
             else{
-                GameObject.find("GlassesTintGameObject").transform.alpha = 0.5
+                let tintObject = GameObject.find("GlassesTintGameObject")
+                tintObject.alpha = 1                
                 this.glasses = true
             }
             console.log("gdown")
