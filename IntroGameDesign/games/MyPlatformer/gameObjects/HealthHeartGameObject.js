@@ -1,4 +1,4 @@
-class HealthHeartGameObject extends RectGameObject{
+class HealthHeartGameObject extends GameObject{
     constructor(){
         super("HealthHeartGameObject", ["Health"], "UI")
         this.addComponent(new Polygon(), {fillStyle: 'red', points: Assets.triangle})

@@ -2,6 +2,7 @@ class HealthBarController extends Component{
     lastHealth = 3
     currentHealth = 3
     
+    
     start(){
         instantiate(new HealthHeartGameObject(), new Vector2(0,0))
 
