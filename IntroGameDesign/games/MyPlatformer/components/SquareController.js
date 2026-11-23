@@ -48,11 +48,21 @@ class SquareController extends Component {
     this.ridgidBody.velocity.y = 0
     this.secondJump = true
     this.isGrounded = true
+
+    if(other.name == "ThrownStickGameObject"){
+      this.gameObject.getComponent(Health).health -= 1
+    }
+    if(other.name == "BasicEnemyGameObject"){
+      this.gameObject.getComponent(Health).health -=1
+      this.ridgidBody.velocity.x *= -2
+      other.getComponent(RigidBody).velocity.x *= -1.5
+    }
  
-    if (Input.keysDownThisFrame.includes("Space")||Input.keysDownThisFrame.includes("KeyW"))
+    if (Input.keysDownThisFrame.includes("Space")||Input.keysDownThisFrame.includes("KeyW")){
       this.ridgidBody.velocity.y -= this.jump
       this.isGrounded = false
       this.timesSinceLastJump = 0
+    }
   }
 
   

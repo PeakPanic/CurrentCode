@@ -43,6 +43,8 @@
 
 
     <!-- Game-Specific Components -->
+    <script src="components/ClosingSceneController.js"></script>
+    <script src="components/OpeningSceneController.js"></script>
     <script src="components/UIButtonController.js"></script>
     <script src="components/HealthBarController.js"></script>
     <script src="components/ThrownStickGameObjectController.js"></script>
@@ -68,6 +70,8 @@
     <script src="./gameObjects/PlatformGameObject.js"></script>
 
     <!-- Game-specific Scenes -->
+    <script src="scenes/ClosingScene.js"></script>
+    <script src="scenes/OpeningScene.js"></script>
     <script src="./scenes/MainScene.js"></script>
 
     <script src="./Assets.js"></script>
@@ -79,7 +83,7 @@
     <script>
         //Start the game engine
         //Every game we make will need to call this function.
-        Engine.start(MainScene, Settings)
+        Engine.start(OpeningScene, Settings)
 
     </script>
 </body>
